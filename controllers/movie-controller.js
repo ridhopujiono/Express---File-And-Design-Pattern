@@ -70,7 +70,7 @@ class MovieController {
                         }
                         let data = await movieService.store(bodyParam);
                         if (data.length > 0) {
-                            res.status(200).json({
+                            res.status(201).json({
                                 message: "Movie added successfully",
                                 data: data
                             });
