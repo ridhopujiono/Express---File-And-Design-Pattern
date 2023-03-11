@@ -68,6 +68,7 @@ class MovieController {
                             year: year,
                             photo: filename
                         }
+                       try {
                         let data = await movieService.store(bodyParam);
                         if (data.length > 0) {
                             res.status(201).json({
@@ -77,6 +78,9 @@ class MovieController {
                         } else {
                             next({ name: "ErrorNotFound" });
                         }
+                       } catch (error) {
+                        next(error);
+                       }
                     }
                 }
 
